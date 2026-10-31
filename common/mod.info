@@ -1,0 +1,4 @@
+name=MisRecetasDev - Recarga experimental
+id=MisRecetasDev
+ description=Herramienta experimental para probar recarga en caliente de craftRecipe y traducciones en Build 42.
+modversion=0.1.0

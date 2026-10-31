@@ -1,0 +1,57 @@
+MisRecetasDev - recarga experimental para Project Zomboid Build 42.21.0
+Versión: 0.1.0
+
+ESTADO
+------
+Este es un prototipo de diagnóstico. La API Java documenta ScriptManager.ReloadScripts(ScriptType)
+con ScriptType.CraftRecipe y Translator.loadFiles(), pero todavía no está demostrado que estas
+llamadas, invocadas desde Lua durante una partida activa, actualicen todas las cachés y la interfaz.
+El mod registra el resultado de las llamadas y la cantidad de craftRecipe antes/después; no declara
+éxito funcional solo porque una llamada no produzca una excepción.
+
+INSTALACIÓN
+-----------
+1. Extrae la carpeta MisRecetasDev en:
+   C:\Users\TU_USUARIO\Zomboid\mods\MisRecetasDev
+   En tu caso, la ruta indicada previamente es:
+   C:\Users\oscar\Zomboid\mods\MisRecetasDev
+2. Comprueba que mod.info quede directamente dentro de MisRecetasDev, no dentro de otra carpeta
+   MisRecetasDev\MisRecetasDev.
+3. Inicia el juego normalmente, sin -debug.
+4. Activa MisRecetasDev en Mods. Para probar, carga una partida de prueba o una copia de seguridad.
+5. Entra en la partida. Debe aparecer un pequeño panel en la parte superior izquierda.
+6. Pulsa “RECARGAR RECETAS + JSON”.
+7. Revisa console.txt en C:\Users\oscar\Zomboid\console.txt y busca [MisRecetasDev].
+8. Abre el menú de fabricación y comprueba si una receta nueva/modificada realmente aparece y funciona.
+   Comprueba también un texto de traducción que hayas cambiado.
+
+PRIMERA PRUEBA RECOMENDADA
+--------------------------
+- Haz una copia de seguridad de MisRecetas y de la partida.
+- En MisRecetas_recetas.txt, cambia temporalmente el tiempo de una receta existente (por ejemplo,
+  time = 300 a time = 301), guarda con Ctrl+S y pulsa el botón.
+- Para probar una receta nueva, añade una receta con nombre único y materiales/resultados válidos.
+- Cambia temporalmente el texto de una clave existente en Translate\ES\Recipes.json, guarda y pulsa
+  el botón. Comprueba dónde se ve ese texto en el juego.
+- Anota el resultado y copia aquí las líneas [MisRecetasDev] y cualquier error cercano.
+
+RECARGA AUTOMÁTICA
+------------------
+Está desactivada por seguridad. En ReloadRecipesUI.lua puedes cambiar:
+  MisRecetasDev.AUTO_RELOAD_SECONDS = 0
+por un número como 10 para repetir la llamada cada 10 segundos.
+IMPORTANTE: esto NO detecta cambios de archivos ni Ctrl+S; solo intenta recargar cada intervalo.
+No actives el modo periódico hasta que la prueba manual no haya mostrado que la recarga es estable.
+
+LIMITACIONES CONOCIDAS
+----------------------
+- El prototipo no vigila el disco y no confirma que el parser vuelva a leer los archivos modificados.
+- La API puede aceptar la llamada sin actualizar recetas ya registradas, el panel de fabricación,
+  o cachés internas.
+- Translator.loadFiles() puede cargar archivos pero no necesariamente limpiar valores antiguos ni
+  refrescar los textos que una interfaz ya haya almacenado.
+- No se recomienda probar primero en una partida importante o servidor multijugador.
+- No necesita -debug.
+
+Si falla, envía el fragmento de console.txt que empieza por [MisRecetasDev] e incluye los errores
+siguientes. No borres errores anteriores: el stack trace completo ayuda a identificar el problema.
