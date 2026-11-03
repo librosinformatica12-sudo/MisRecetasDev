@@ -1,0 +1,17 @@
+# Sistema / OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editores / Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Registros y copias / Logs and backups
+console.txt
+*.log
+*.bak
+*.zip
+*.rar

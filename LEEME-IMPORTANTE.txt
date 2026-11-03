@@ -13,15 +13,15 @@ INSTALACIÓN
 -----------
 1. Extrae la carpeta MisRecetasDev en:
    C:\Users\TU_USUARIO\Zomboid\mods\MisRecetasDev
-   En tu caso, la ruta indicada previamente es:
-   C:\Users\oscar\Zomboid\mods\MisRecetasDev
+   Ejemplo con tu usuario de Windows:
+   C:\Users\<USUARIO>\Zomboid\mods\MisRecetasDev
 2. Comprueba que mod.info quede directamente dentro de MisRecetasDev, no dentro de otra carpeta
    MisRecetasDev\MisRecetasDev.
 3. Inicia el juego normalmente, sin -debug.
 4. Activa MisRecetasDev en Mods. Para probar, carga una partida de prueba o una copia de seguridad.
 5. Entra en la partida. Debe aparecer un pequeño panel en la parte superior izquierda.
 6. Pulsa “RECARGAR RECETAS + JSON”.
-7. Revisa console.txt en C:\Users\oscar\Zomboid\console.txt y busca [MisRecetasDev].
+7. Revisa console.txt en C:\Users\<USUARIO>\Zomboid\console.txt y busca [MisRecetasDev].
 8. Abre el menú de fabricación y comprueba si una receta nueva/modificada realmente aparece y funciona.
    Comprueba también un texto de traducción que hayas cambiado.
 
