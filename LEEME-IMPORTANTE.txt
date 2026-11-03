@@ -55,3 +55,66 @@ LIMITACIONES CONOCIDAS
 
 Si falla, envía el fragmento de console.txt que empieza por [MisRecetasDev] e incluye los errores
 siguientes. No borres errores anteriores: el stack trace completo ayuda a identificar el problema.
+
+
+================================================================================
+ENGLISH
+================================================================================
+
+MisRecetasDev - experimental reloader for Project Zomboid Build 42.21.0
+Version: 0.1.0
+
+STATUS
+------
+This is a diagnostic prototype. The Java API documents ScriptManager.ReloadScripts(ScriptType)
+with ScriptType.CraftRecipe and Translator.loadFiles(), but it has not yet been proven that these
+calls, invoked from Lua during an active game session, refresh every cache and the UI.
+The mod logs the result of the calls and the craftRecipe count before/after; it does not declare
+functional success just because a call does not throw an exception.
+
+INSTALLATION
+------------
+1. Extract the MisRecetasDev folder to:
+   C:\Users\YOUR_USER\Zomboid\mods\MisRecetasDev
+   Example with your Windows user:
+   C:\Users\<USER>\Zomboid\mods\MisRecetasDev
+2. Make sure mod.info is directly inside MisRecetasDev, not inside another
+   MisRecetasDev\MisRecetasDev folder.
+3. Start the game normally, without -debug.
+4. Enable MisRecetasDev in Mods. For testing, load a test save or a backup.
+5. Enter the save. A small panel should appear in the top-left corner.
+6. Click "RECARGAR RECETAS + JSON".
+7. Check console.txt at C:\Users\<USER>\Zomboid\console.txt and look for [MisRecetasDev].
+8. Open the crafting menu and check whether a new/modified recipe actually appears and works.
+   Also check a translation text that you have changed.
+
+RECOMMENDED FIRST TEST
+----------------------
+- Back up MisRecetas and your save.
+- In MisRecetas_recetas.txt, temporarily change the time of an existing recipe (for example,
+  time = 300 to time = 301), save with Ctrl+S and click the button.
+- To test a new recipe, add a recipe with a unique name and valid materials/results.
+- Temporarily change the text of an existing key in Translate\ES\Recipes.json, save and click
+  the button. Check where that text appears in the game.
+- Write down the result and copy the [MisRecetasDev] lines and any nearby errors here.
+
+AUTOMATIC RELOAD
+----------------
+It is disabled for safety. In ReloadRecipesUI.lua you can change:
+  MisRecetasDev.AUTO_RELOAD_SECONDS = 0
+to a number such as 10 to repeat the call every 10 seconds.
+IMPORTANT: this does NOT detect file changes or Ctrl+S; it only attempts a reload at each interval.
+Do not enable the periodic mode until manual testing has shown that reloading is stable.
+
+KNOWN LIMITATIONS
+-----------------
+- The prototype does not watch the disk and does not confirm that the parser reads the modified files again.
+- The API may accept the call without updating already registered recipes, the crafting panel,
+  or internal caches.
+- Translator.loadFiles() may load files but does not necessarily clear old values or refresh
+  texts that a UI has already stored.
+- Testing first on an important save or a multiplayer server is not recommended.
+- It does not need -debug.
+
+If it fails, send the console.txt excerpt that starts with [MisRecetasDev] and include the following
+errors. Do not delete earlier errors: the full stack trace helps identify the problem.
