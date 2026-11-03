@@ -4,7 +4,7 @@ Experimental helper mod for **Project Zomboid Build 42** that tries to reload re
 
 [English](#english) | [Español](#espanol)
 
-Quick links: [Detailed guide (ES)](README_ES.md) | [Detailed guide (EN)](README_GB.md) | [Step-by-step (ES)](LEEME-IMPORTANTE.txt)
+Quick links: [Step-by-step guide (ES/EN)](LEEME-IMPORTANTE.txt)
 
 ---
 
@@ -64,9 +64,7 @@ Automatic reload is disabled by default. The optional timer only repeats the sam
 4. Load a **test save** or a backup of your save.
 5. Click **RECARGAR RECETAS + JSON** and check the result in `console.txt` and in the crafting menu.
 
-Detailed step-by-step guide (Spanish): [`LEEME-IMPORTANTE.txt`](LEEME-IMPORTANTE.txt)
-
-More detailed documentation: [README_GB.md](README_GB.md)
+Detailed step-by-step guide (Spanish + English): [`LEEME-IMPORTANTE.txt`](LEEME-IMPORTANTE.txt)
 
 ### How to test
 
@@ -88,8 +86,6 @@ MisRecetasDev/
     mod.info
     media/lua/client/MisRecetasDev/ReloadRecipesUI.lua
   README.md
-  README_ES.md
-  README_GB.md
   LEEME-IMPORTANTE.txt
   CONTRIBUTING.md
 ```
@@ -168,9 +164,7 @@ La recarga automática está desactivada por defecto. El temporizador opcional s
 4. Carga una **partida de prueba** o una copia de seguridad de tu partida.
 5. Pulsa **RECARGAR RECETAS + JSON** y comprueba el resultado en `console.txt` y en el menú de fabricación.
 
-Guía detallada paso a paso: [`LEEME-IMPORTANTE.txt`](LEEME-IMPORTANTE.txt)
-
-Documentación más detallada: [README_ES.md](README_ES.md)
+Guía detallada paso a paso (español + inglés): [`LEEME-IMPORTANTE.txt`](LEEME-IMPORTANTE.txt)
 
 ### Cómo probarlo
 
@@ -192,8 +186,6 @@ MisRecetasDev/
     mod.info
     media/lua/client/MisRecetasDev/ReloadRecipesUI.lua
   README.md
-  README_ES.md
-  README_GB.md
   LEEME-IMPORTANTE.txt
   CONTRIBUTING.md
 ```
